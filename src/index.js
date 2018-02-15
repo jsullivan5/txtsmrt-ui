@@ -6,7 +6,7 @@ import store, { history } from './store';
 import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
 
-import './index.css'
+import './index.css';
 
 render(
   <Provider store={store}>
@@ -16,7 +16,7 @@ render(
       </div>
     </ConnectedRouter>
   </Provider>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 registerServiceWorker();
