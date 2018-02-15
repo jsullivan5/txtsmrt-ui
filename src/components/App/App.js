@@ -1,9 +1,8 @@
 import React from 'react';
-import Header from '../Header/Header';
 
 const App = () => (
   <main>
-    <Header />
+    <h1>This is the amazing app</h1>
   </main>
 );
 
