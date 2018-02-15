@@ -9,7 +9,7 @@ class Login extends Component {
   constructor() {
     super();
     this.state = {
-      userName: '',
+      phoneNumber: '',
       password: '',
     };
     this.handleChange = this.handleChange.bind(this);
@@ -22,15 +22,15 @@ class Login extends Component {
   }
 
   render() {
-    const { userName, password } = this.state;
+    const { phoneNumber, password } = this.state;
 
     return (
       <section className="login">
         <form>
           <input
-            type="text"
-            name="userName"
-            value={userName}
+            type="tel"
+            name="phoneNumber"
+            value={phoneNumber}
             onChange={this.handleChange}
             className="form-input"
           />
