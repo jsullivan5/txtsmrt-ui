@@ -10,9 +10,9 @@ class Login extends Component {
     super();
     this.state = {
       phoneNumber: '',
+      email: '',
       firstName: '',
       lastName: '',
-      email: '',
       password: '',
     };
     this.handleChange = this.handleChange.bind(this);
