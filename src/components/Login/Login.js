@@ -13,7 +13,7 @@ class Login extends Component {
       password: '',
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
@@ -26,7 +26,7 @@ class Login extends Component {
 
     return (
       <section className="login">
-        <form>
+        <form onSubmit={handleSubmit}>
           <input
             type="tel"
             name="phoneNumber"
@@ -44,7 +44,6 @@ class Login extends Component {
           <input
             type="submit"
             className="submit"
-            onCLick={handleSubmit}
           />
         </form>
       </section>
