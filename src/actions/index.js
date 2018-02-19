@@ -20,3 +20,19 @@ export const userSignup = user => (
       .catch(error => console.error(error));
   }
 );
+
+export const userLogin = user => (
+  (dispatch) => {
+    fetch(`${environment.apiUrl}/user/login`, {
+      method: 'POST',
+      body: JSON.stringify(user),
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then(response => response.json())
+      .then((data) => {
+        console.log(data);
+        dispatch(setUser(data));
+      })
+      .catch(error => console.error(error));
+  }
+);
