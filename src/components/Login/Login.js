@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Login.css';
 
 const handleSubmit = (event) => {
   event.preventDefault();
@@ -27,20 +28,28 @@ class Login extends Component {
     return (
       <section className="login">
         <form onSubmit={handleSubmit}>
-          <input
-            type="tel"
-            name="phoneNumber"
-            value={phoneNumber}
-            onChange={this.handleChange}
-            className="form-input"
-          />
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={this.handleChange}
-            className="form-input"
-          />
+          <label htmlFor="phone">
+            Phone Number
+            <input
+              id="phone"
+              type="tel"
+              name="phoneNumber"
+              value={phoneNumber}
+              onChange={this.handleChange}
+              className="form-input"
+            />
+          </label>
+          <label htmlFor="password-login">
+            Password
+            <input
+              id="password-login"
+              type="password"
+              name="password"
+              value={password}
+              onChange={this.handleChange}
+              className="form-input"
+            />
+          </label>
           <input
             type="submit"
             className="submit"
