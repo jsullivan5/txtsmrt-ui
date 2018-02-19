@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './Login.css';
-
-const handleSubmit = (event) => {
-  event.preventDefault();
-  console.log('Button click');
-};
 
 class Login extends Component {
   constructor() {
@@ -14,7 +10,7 @@ class Login extends Component {
       password: '',
     };
     this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
@@ -22,12 +18,18 @@ class Login extends Component {
     this.setState({ [name]: value });
   }
 
+  handleSubmit(event) {
+    const user = this.state;
+    event.preventDefault();
+    this.props.userLogin(user);
+  }
+
   render() {
     const { phoneNumber, password } = this.state;
 
     return (
       <section className="login">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
           <label htmlFor="phone">
             Phone Number
             <input
@@ -59,5 +61,13 @@ class Login extends Component {
     );
   }
 }
+
+Login.defaultProps = {
+  userLogin: f => f,
+};
+
+Login.propTypes = {
+  userLogin: PropTypes.func,
+};
 
 export default Login;
