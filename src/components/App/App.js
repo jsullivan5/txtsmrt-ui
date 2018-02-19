@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Header from '..//Header/Header';
-import Login from '..//Login/Login';
+import LoginContainer from '../Login/LoginContainer';
 import SignupContainer from '../Signup/SignupContainer';
 
 
@@ -23,7 +23,7 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Route path="/login" component={Login} />
+        <Route path="/login" component={LoginContainer} />
         <Route path="/signup" component={SignupContainer} />
       </div>
     );
