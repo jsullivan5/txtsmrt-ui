@@ -42,13 +42,12 @@ class Header extends Component {
 
 Header.defaultProps = {
   history: {},
-  userLogout: f => f,
   user: {},
 };
 
 Header.propTypes = {
   history: PropTypes.object,
-  userLogout: PropTypes.func,
+  userLogout: PropTypes.func.isRequired,
   user: PropTypes.object,
 };
 
