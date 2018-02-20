@@ -120,12 +120,8 @@ class Signup extends Component {
   }
 }
 
-Signup.defaultProps = {
-  userSignup: f => f,
-};
-
 Signup.propTypes = {
-  userSignup: PropTypes.func,
+  userSignup: PropTypes.func.isRequired,
 };
 
 export default Signup;
