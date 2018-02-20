@@ -3,6 +3,6 @@ import { routerReducer } from 'react-router-redux';
 import { userReducer } from './userReducer';
 
 export default combineReducers({
-  routing: routerReducer,
-  userReducer,
+  router: routerReducer,
+  user: userReducer,
 });
