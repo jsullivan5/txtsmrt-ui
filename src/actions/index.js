@@ -11,6 +11,7 @@ export const userSignup = user => (
       method: 'POST',
       body: JSON.stringify(user),
       headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
     })
       .then(response => response.json())
       .then((data) => {
@@ -27,6 +28,7 @@ export const userLogin = user => (
       method: 'POST',
       body: JSON.stringify(user),
       headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
     })
       .then(response => response.json())
       .then((data) => {
