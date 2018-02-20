@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Header from '..//Header/Header';
+import HeaderContainer from '..//Header/HeaderContainer';
 import LoginContainer from '../Login/LoginContainer';
 import SignupContainer from '../Signup/SignupContainer';
 
@@ -15,14 +15,14 @@ class App extends Component {
     if (isLoggingIn) {
       // dispatch(navigateTo(redirectUrl));
     } else if (isLoggingOut) {
-      // Cleanup cookie on logout ect.
+      document.cookie = 'connect.sid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     }
   }
 
   render() {
     return (
       <div>
-        <Header />
+        <HeaderContainer />
         <Route path="/login" component={LoginContainer} />
         <Route path="/signup" component={SignupContainer} />
       </div>
