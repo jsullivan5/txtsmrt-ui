@@ -5,14 +5,9 @@ export const setUser = user => (
   { type: constants.SET_USER, user }
 );
 
-export const userSignup = user => (
+const fetchUser = (endpoint, options) => (
   (dispatch) => {
-    fetch(`${environment.apiUrl}/user/signup`, {
-      method: 'POST',
-      body: JSON.stringify(user),
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
-    })
+    fetch(`${environment.apiUrl}${endpoint}`, options)
       .then(response => response.json())
       .then((data) => {
         console.log(data);
@@ -20,38 +15,31 @@ export const userSignup = user => (
       })
       .catch(error => console.error(error));
   }
+);
+
+export const userSignup = user => (
+  fetchUser('/user/signup', {
+    method: 'POST',
+    body: JSON.stringify(user),
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+  })
 );
 
 export const getUser = () => (
-  (dispatch) => {
-    fetch(`${environment.apiUrl}/user/login`, {
-      method: 'GET',
-      credentials: 'include',
-    })
-      .then(response => response.json())
-      .then((user) => {
-        console.log(user);
-        dispatch(setUser(user));
-      })
-      .catch(error => console.error(error));
-  }
+  fetchUser('/user/login', {
+    method: 'GET',
+    credentials: 'include',
+  })
 );
 
 export const userLogin = user => (
-  (dispatch) => {
-    fetch(`${environment.apiUrl}/user/login`, {
-      method: 'POST',
-      body: JSON.stringify(user),
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
-    })
-      .then(response => response.json())
-      .then((data) => {
-        console.log(data);
-        dispatch(setUser(data));
-      })
-      .catch(error => console.error(error));
-  }
+  fetchUser('/user/login', {
+    method: 'POST',
+    body: JSON.stringify(user),
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+  })
 );
 
 export const userLogout = () => (
