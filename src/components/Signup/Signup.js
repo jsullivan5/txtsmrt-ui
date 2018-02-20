@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './Signup.css';
 
@@ -112,6 +113,8 @@ class Signup extends Component {
             className="submit"
           />
         </form>
+        <p>Already have an account?</p>
+        <Link to="/login" replace>Login</Link>
       </section>
     );
   }
