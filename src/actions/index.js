@@ -38,3 +38,17 @@ export const userLogin = user => (
       .catch(error => console.error(error));
   }
 );
+
+export const userLogout = () => (
+  (dispatch) => {
+    fetch(`${environment.apiUrl}/user/logout`, {
+      method: 'GET',
+      credentials: 'include',
+    })
+      .then((response) => {
+        console.log(response);
+        dispatch(setUser({ }));
+      })
+      .catch(error => console.error(error));
+  }
+);
