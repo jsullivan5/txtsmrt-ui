@@ -35,12 +35,8 @@ class App extends Component {
   }
 }
 
-App.defaultProps = {
-  getUser: f => f,
-};
-
 App.propTypes = {
-  getUser: PropTypes.func,
+  getUser: PropTypes.func.isRequired,
 };
 
 export default App;
