@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import HeaderContainer from '..//Header/HeaderContainer';
 import LoginContainer from '../Login/LoginContainer';
 import SignupContainer from '../Signup/SignupContainer';
+import MessageContainer from '../MessageConsole/MessageContainer';
 
 class App extends Component {
   componentDidMount() {
@@ -30,6 +31,7 @@ class App extends Component {
         <HeaderContainer />
         <Route path="/login" component={LoginContainer} />
         <Route path="/signup" component={SignupContainer} />
+        <Route path="/messages" component={MessageContainer} />
       </div>
     );
   }
