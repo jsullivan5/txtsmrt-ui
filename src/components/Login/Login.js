@@ -19,20 +19,26 @@ class Login extends Component {
     this.setState({ [name]: value });
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
+    const { history, userLogin } = this.props;
     const user = this.state;
+    const formattedNumber = `+1${user.phoneNumber}`;
+    user.phoneNumber = formattedNumber;
+
     event.preventDefault();
-    this.props.userLogin(user);
+    await userLogin(user);
+    history.push('/messages');
   }
 
   render() {
     const { phoneNumber, password } = this.state;
+    const { user } = this.props;
 
     return (
-      <section className="login">
+      <section className="form-container">
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="phone">
-            Phone Number
+          <div className="form-inputs">
+            <label htmlFor="phone">Phone Number</label>
             <input
               id="phone"
               type="tel"
@@ -41,9 +47,7 @@ class Login extends Component {
               onChange={this.handleChange}
               className="form-input"
             />
-          </label>
-          <label htmlFor="password-login">
-            Password
+            <label htmlFor="password-login">Password</label>
             <input
               id="password-login"
               type="password"
@@ -52,20 +56,28 @@ class Login extends Component {
               onChange={this.handleChange}
               className="form-input"
             />
-          </label>
+          </div>
           <input
             type="submit"
             className="submit"
           />
         </form>
-        <p>Don&apos;t have an account? </p>
-        <Link to="/signup" replace>Signup</Link>
+        {user !== {} &&
+        <div className="signin-link">
+          <p>Don&apos;t have an account? </p>
+          <Link to="/signup" replace>Signup</Link>
+        </div>}
       </section>
     );
   }
 }
 
+Login.defaultProps = {
+  user: { },
+};
+
 Login.propTypes = {
+  user: PropTypes.object,
   userLogin: PropTypes.func.isRequired,
 };
 

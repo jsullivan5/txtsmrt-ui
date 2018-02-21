@@ -23,15 +23,19 @@ class Signup extends Component {
     this.setState({ [name]: value });
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
+    const { history, userSignup } = this.props;
     const user = this.state;
     const formattedNumber = `+1${user.phoneNumber}`;
     user.phoneNumber = formattedNumber;
+
     event.preventDefault();
-    this.props.userSignup(user);
+    await userSignup(user);
+    history.push('/messages');
   }
 
   render() {
+    const { user } = this.props;
     const {
       phoneNumber,
       firstName,
@@ -42,10 +46,10 @@ class Signup extends Component {
     } = this.state;
 
     return (
-      <section className="signup">
+      <section className="form-container">
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="phone-signup">
-            Phone Number
+          <div className="form-inputs">
+            <label htmlFor="phone-signup">Phone Number</label>
             <input
               id="phone-signup"
               type="tel"
@@ -54,9 +58,7 @@ class Signup extends Component {
               onChange={this.handleChange}
               className="form-input"
             />
-          </label>
-          <label htmlFor="first-name">
-            First Name
+            <label htmlFor="first-name">First Name</label>
             <input
               id="first-name"
               type="text"
@@ -65,9 +67,7 @@ class Signup extends Component {
               onChange={this.handleChange}
               className="form-input"
             />
-          </label>
-          <label htmlFor="last-name">
-            Last Name
+            <label htmlFor="last-name">Last Name</label>
             <input
               id="last-name"
               type="text"
@@ -76,9 +76,7 @@ class Signup extends Component {
               onChange={this.handleChange}
               className="form-input"
             />
-          </label>
-          <label htmlFor="email">
-            Email
+            <label htmlFor="email">Email</label>
             <input
               id="email"
               type="email"
@@ -87,9 +85,7 @@ class Signup extends Component {
               onChange={this.handleChange}
               className="form-input"
             />
-          </label>
-          <label htmlFor="password-signup">
-            Password
+            <label htmlFor="password-signup">Password</label>
             <input
               id="password-signup"
               type="password"
@@ -98,9 +94,7 @@ class Signup extends Component {
               onChange={this.handleChange}
               className="form-input"
             />
-          </label>
-          <label htmlFor="password-conf">
-            Confirm Password
+            <label htmlFor="password-conf">Confirm Password</label>
             <input
               id="password-conf"
               type="password"
@@ -109,20 +103,28 @@ class Signup extends Component {
               onChange={this.handleChange}
               className="form-input"
             />
-          </label>
+          </div>
           <input
             type="submit"
             className="submit"
           />
         </form>
-        <p>Already have an account?</p>
-        <Link to="/login" replace>Login</Link>
+        {user !== {} &&
+        <div className="signin-link">
+          <p>Already have an account?</p>
+          <Link to="/login" replace>Login</Link>
+        </div>}
       </section>
     );
   }
 }
 
+Signup.defaultProps = {
+  user: { },
+};
+
 Signup.propTypes = {
+  user: PropTypes.object,
   userSignup: PropTypes.func.isRequired,
 };
 
