@@ -39,10 +39,15 @@ button {
   text-decoration: none;
 }
 
+input {
+  border: none;
+  border-radius: 5px;
+  height: 20px;
+}
+
 input[type="submit"] {
   background-color: var(--btnbackground);
   color: var(--accentcolor);
-  padding: 5px;
 }
 
 /* Default Form Styles */
