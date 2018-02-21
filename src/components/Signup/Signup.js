@@ -23,12 +23,15 @@ class Signup extends Component {
     this.setState({ [name]: value });
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
+    const { history, userSignup } = this.props;
     const user = this.state;
     const formattedNumber = `+1${user.phoneNumber}`;
     user.phoneNumber = formattedNumber;
+
     event.preventDefault();
-    this.props.userSignup(user);
+    await userSignup(user);
+    history.push('/messages');
   }
 
   render() {
