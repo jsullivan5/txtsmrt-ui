@@ -1,12 +1,83 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+/* CSS Variables */
+
+:root {
+  --accentcolor: red;
+  --bgcolor: lightgrey;
+  --borderradius: 10px;
+  --btnbackground: #FFF;
 }
 
-form {
-  display: flex;
+/* Default Styles */
+
+body {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  padding: 30px;
+}
+
+h1 {
+  color: var(--accentcolor);
+}
+
+a {
+  background-color: var(--btnbackground);
+  border-radius: var(--borderradius);
+  color: var(--accentcolor);
+  padding: 5px 10px;
+  text-decoration: none;
+}
+
+button {
+  background-color: var(--btnbackground);
+  border-radius: var(--borderradius);
+  color: var(--accentcolor);
+  text-decoration: none;
+}
+
+input[type="submit"] {
+  background-color: var(--btnbackground);
+  color: var(--accentcolor);
+  padding: 5px;
+}
+
+/* Default Form Styles */
+
+.form-container {
   align-items: center;
+  background-color: var(--bgcolor);
+  border-radius: var(--borderradius);
+  display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 50px;
+  margin: 0 auto;
+  width: 500px;
+}
+
+.form-inputs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form-inputs input {
+  margin-bottom: 10px;
+  width: 300px;
+}
+
+.form-inputs a {
+  margin: 0 auto;
+}
+
+.form-inputs .submit {
+  align-self: center;
+}
+
+.signin-link {
+  text-align: center;
 }
