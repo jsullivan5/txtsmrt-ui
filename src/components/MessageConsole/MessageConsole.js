@@ -26,7 +26,6 @@ class MessageConsole extends Component {
   }
 
   render() {
-    console.log('THE MESSAGES: ', this.props.messages);
     const messages = this.renderMessages();
 
     return (
