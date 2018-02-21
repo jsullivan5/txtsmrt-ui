@@ -34,8 +34,8 @@ class Login extends Component {
     return (
       <section className="form-container">
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="phone">
-            Phone Number
+          <div className="form-inputs">
+            <label htmlFor="phone">Phone Number</label>
             <input
               id="phone"
               type="tel"
@@ -44,9 +44,7 @@ class Login extends Component {
               onChange={this.handleChange}
               className="form-input"
             />
-          </label>
-          <label htmlFor="password-login">
-            Password
+            <label htmlFor="password-login">Password</label>
             <input
               id="password-login"
               type="password"
@@ -55,14 +53,14 @@ class Login extends Component {
               onChange={this.handleChange}
               className="form-input"
             />
-          </label>
+          </div>
           <input
             type="submit"
             className="submit"
           />
         </form>
-        {!user &&
-        <div>
+        {user !== {} &&
+        <div className="signin-link">
           <p>Don&apos;t have an account? </p>
           <Link to="/signup" replace>Signup</Link>
         </div>}
