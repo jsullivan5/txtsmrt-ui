@@ -1,12 +1,12 @@
 import * as constants from '../constants';
 
-const userReducer = (state = {}, action) => {
+const messageReducer = (state = [], action) => {
   switch (action.type) {
-    case constants.SET_USER:
+    case constants.SET_MESSAGES:
       return action.payload;
     default:
       return state;
   }
 };
 
-export default userReducer;
+export default messageReducer;

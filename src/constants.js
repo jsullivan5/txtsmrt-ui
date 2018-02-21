@@ -1,2 +1,2 @@
 export const SET_USER = 'SET_USER';
-export const hello = 'hello';
+export const SET_MESSAGES = 'SET_MESSAGES';

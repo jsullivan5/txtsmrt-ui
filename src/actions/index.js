@@ -2,7 +2,11 @@ import environment from '../environment';
 import * as constants from '../constants';
 
 export const setUser = user => (
-  { type: constants.SET_USER, user }
+  { type: constants.SET_USER, payload: user }
+);
+
+export const setMessages = messages => (
+  { type: constants.SET_MESSAGES, payload: messages }
 );
 
 const fetchUser = (endpoint, options) => (
@@ -53,6 +57,20 @@ export const userLogout = () => (
         dispatch(setUser({ }));
         document.cookie =
           'connect.sid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      })
+      .catch(error => console.error(error));
+  }
+);
+
+export const getAllMessages = () => (
+  (dispatch) => {
+    fetch(`${environment.apiUrl}/message/list`, {
+      credentials: 'include',
+    })
+      .then(response => response.json())
+      .then((messsages) => {
+        console.log(messsages);
+        dispatch(setMessages(messsages));
       })
       .catch(error => console.error(error));
   }

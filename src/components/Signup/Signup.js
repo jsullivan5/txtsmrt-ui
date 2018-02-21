@@ -25,6 +25,8 @@ class Signup extends Component {
 
   handleSubmit(event) {
     const user = this.state;
+    const formattedNumber = `+1${user.phoneNumber}`;
+    user.phoneNumber = formattedNumber;
     event.preventDefault();
     this.props.userSignup(user);
   }

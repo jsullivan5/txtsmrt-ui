@@ -32,7 +32,7 @@ class Header extends Component {
         </div>
         <nav>
           {this.renderLogin()}
-          <NavLink to="/mytexts">My Texts</NavLink>
+          <NavLink to="/messages">My Texts</NavLink>
           <NavLink to="/community">Community</NavLink>
         </nav>
       </header>
