@@ -29,9 +29,11 @@ class App extends Component {
     return (
       <div>
         <HeaderContainer />
-        <Route path="/login" component={LoginContainer} />
-        <Route path="/signup" component={SignupContainer} />
-        <Route path="/messages" component={MessageContainer} />
+        <main>
+          <Route path="/login" component={LoginContainer} />
+          <Route path="/signup" component={SignupContainer} />
+          <Route path="/messages" component={MessageContainer} />
+        </main>
       </div>
     );
   }
