@@ -45,8 +45,8 @@ class Signup extends Component {
     return (
       <section className="form-container">
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="phone-signup">
-            Phone Number
+          <div className="form-inputs">
+            <label htmlFor="phone-signup">Phone Number</label>
             <input
               id="phone-signup"
               type="tel"
@@ -55,9 +55,7 @@ class Signup extends Component {
               onChange={this.handleChange}
               className="form-input"
             />
-          </label>
-          <label htmlFor="first-name">
-            First Name
+            <label htmlFor="first-name">First Name</label>
             <input
               id="first-name"
               type="text"
@@ -66,9 +64,7 @@ class Signup extends Component {
               onChange={this.handleChange}
               className="form-input"
             />
-          </label>
-          <label htmlFor="last-name">
-            Last Name
+            <label htmlFor="last-name">Last Name</label>
             <input
               id="last-name"
               type="text"
@@ -77,9 +73,7 @@ class Signup extends Component {
               onChange={this.handleChange}
               className="form-input"
             />
-          </label>
-          <label htmlFor="email">
-            Email
+            <label htmlFor="email">Email</label>
             <input
               id="email"
               type="email"
@@ -88,9 +82,7 @@ class Signup extends Component {
               onChange={this.handleChange}
               className="form-input"
             />
-          </label>
-          <label htmlFor="password-signup">
-            Password
+            <label htmlFor="password-signup">Password</label>
             <input
               id="password-signup"
               type="password"
@@ -99,9 +91,7 @@ class Signup extends Component {
               onChange={this.handleChange}
               className="form-input"
             />
-          </label>
-          <label htmlFor="password-conf">
-            Confirm Password
+            <label htmlFor="password-conf">Confirm Password</label>
             <input
               id="password-conf"
               type="password"
@@ -110,14 +100,14 @@ class Signup extends Component {
               onChange={this.handleChange}
               className="form-input"
             />
-          </label>
+          </div>
           <input
             type="submit"
             className="submit"
           />
         </form>
-        {!user &&
-        <div>
+        {user !== {} &&
+        <div className="signin-link">
           <p>Already have an account?</p>
           <Link to="/login" replace>Login</Link>
         </div>}
